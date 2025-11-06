@@ -1,0 +1,122 @@
+[
+  {
+    "cve_id": "CVE-2021-0001",
+    "identifier": "cve@mitre.org",
+    "description": "Example buffer overflow in ExampleProduct",
+    "year": 2021,
+    "cvss": 7.5,
+    "published": "2021-02-15",
+    "last_modified": "2022-10-17",
+    "status": "Analyzed",
+    "products": [{"vendor": "ExampleCorp", "product": "ExampleProduct"}],
+    "references": ["https://example.com/advisory/1"]
+  },
+  {
+    "cve_id": "CVE-2021-0002",
+    "identifier": "cve@mitre.org",
+    "description": "SQL injection in ExampleProduct2",
+    "year": 2021,
+    "cvss": 9.8,
+    "published": "2021-03-03",
+    "last_modified": "2022-10-17",
+    "status": "Modified",
+    "products": [{"vendor": "ExampleCorp", "product": "ExampleProduct2"}],
+    "references": ["https://example.com/advisory/2"]
+  },
+  {
+    "cve_id": "CVE-2020-1234",
+    "identifier": "cve@mitre.org",
+    "description": "Cross-site scripting in OtherProduct",
+    "year": 2020,
+    "cvss": 5.0,
+    "published": "2020-11-20",
+    "last_modified": "2022-10-17",
+    "status": "Rejected",
+    "products": [{"vendor": "OtherVendor", "product": "OtherProduct"}],
+    "references": ["https://other.example/advisory/1234"]
+  },
+  {
+    "cve_id": "CVE-2022-0003",
+    "identifier": "security@example.com",
+    "description": "Heap overflow in SampleApp",
+    "year": 2022,
+    "cvss": 6.4,
+    "published": "2022-01-10",
+    "last_modified": "2022-06-01",
+    "status": "Analyzed",
+    "products": [{"vendor": "SampleInc", "product": "SampleApp"}],
+    "references": ["https://sample.com/advisory/3"]
+  },
+  {
+    "cve_id": "CVE-2019-0456",
+    "identifier": "cve@mitre.org",
+    "description": "Privilege escalation in SomeService",
+    "year": 2019,
+    "cvss": 8.1,
+    "published": "2019-05-20",
+    "last_modified": "2020-02-11",
+    "status": "Modified",
+    "products": [{"vendor": "VendorA", "product": "SomeService"}],
+    "references": ["https://vendor.example/advisory/456"]
+  },
+  {
+    "cve_id": "CVE-2018-2222",
+    "identifier": "security@othervendor.com",
+    "description": "Authentication bypass in AuthLib",
+    "year": 2018,
+    "cvss": 7.0,
+    "published": "2018-09-15",
+    "last_modified": "2019-01-01",
+    "status": "Analyzed",
+    "products": [{"vendor": "OtherVendor", "product": "AuthLib"}],
+    "references": ["https://othervendor.example/advisory/2222"]
+  },
+  {
+    "cve_id": "CVE-2023-1000",
+    "identifier": "security@example.com",
+    "description": "Information disclosure in NewApp",
+    "year": 2023,
+    "cvss": 4.3,
+    "published": "2023-04-01",
+    "last_modified": "2023-05-10",
+    "status": "Analyzed",
+    "products": [{"vendor": "NewCo", "product": "NewApp"}],
+    "references": ["https://newco.example/advisory/1000"]
+  },
+  {
+    "cve_id": "CVE-2020-9999",
+    "identifier": "cve@mitre.org",
+    "description": "Remote code execution in LegacyProduct",
+    "year": 2020,
+    "cvss": 9.0,
+    "published": "2020-12-12",
+    "last_modified": "2021-06-06",
+    "status": "Analyzed",
+    "products": [{"vendor": "LegacyCorp", "product": "LegacyProduct"}],
+    "references": ["https://legacy.example/advisory/9999"]
+  },
+  {
+    "cve_id": "CVE-2017-0007",
+    "identifier": "security@vendorx.com",
+    "description": "Denial of service in NetStack",
+    "year": 2017,
+    "cvss": 5.5,
+    "published": "2017-06-30",
+    "last_modified": "2018-07-20",
+    "status": "Rejected",
+    "products": [{"vendor": "VendorX", "product": "NetStack"}],
+    "references": ["https://vendorx.example/advisory/7"]
+  },
+  {
+    "cve_id": "CVE-2024-0001",
+    "identifier": "alerts@example.com",
+    "description": "Recent vulnerability in FutureApp",
+    "year": 2024,
+    "cvss": 6.1,
+    "published": "2024-01-05",
+    "last_modified": "2024-02-10",
+    "status": "Analyzed",
+    "products": [{"vendor": "FutureCorp", "product": "FutureApp"}],
+    "references": ["https://future.example/advisory/1"]
+  }
+]

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CVEs - List</title>
+    <style>
+      body { font-family: Arial, sans-serif; max-width: 1000px; margin: 24px auto; }
+      table { width: 100%; border-collapse: collapse; margin-bottom: 8px }
+      th, td { border: 1px solid #ddd; padding: 8px; text-align: left }
+      th { background: #f2f2f2 }
+      .controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px }
+      .pagination { margin-top: 12px }
+      .small { font-size: 0.9em; color: #333 }
+    </style>
+  </head>
+  <body>
+    <h1>CVEs</h1>
+
+    <div class="controls">
+      <div class="small">Total Records: {{ total }}</div>
+
+      <div>
+        <form id="perForm" method="get" action="">
+          <label for="per_page">Results Per Page:</label>
+          <select name="per_page" id="per_page" onchange="document.getElementById('perForm').submit()">
+            <option value="10" {% if per_page==10 %}selected{% endif %}>10</option>
+            <option value="50" {% if per_page==50 %}selected{% endif %}>50</option>
+            <option value="100" {% if per_page==100 %}selected{% endif %}>100</option>
+          </select>
+          <input type="hidden" name="page" value="1" />
+          <input type="hidden" name="sort" value="{{ sort }}" />
+        </form>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>CVE ID</th>
+          <th>IDENTIFIER</th>
+          <th>
+            PUBLISHED DATE
+            {% if sort=='desc' %}
+              <a href="?page={{ page }}&per_page={{ per_page }}&sort=asc">▲</a>
+            {% else %}
+              <a href="?page={{ page }}&per_page={{ per_page }}&sort=desc">▼</a>
+            {% endif %}
+          </th>
+          <th>LAST MODIFIED DATE</th>
+          <th>STATUS</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td><a href="{{ url_for('cve_detail', cve_id=r.cve_id) }}">{{ r.cve_id }}</a></td>
+          <td>{{ r.identifier or '' }}</td>
+          <td>{{ r.published or '' }}</td>
+          <td>{{ r.last_modified or '' }}</td>
+          <td>{{ r.status or '' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      {% if page>1 %}
+        <a href="?page={{ page-1 }}&per_page={{ per_page }}&sort={{ sort }}">&laquo; Prev</a>
+      {% endif %}
+      <span> Page {{ page }} of {{ last_page }} </span>
+      {% if page<last_page %}
+        <a href="?page={{ page+1 }}&per_page={{ per_page }}&sort={{ sort }}">Next &raquo;</a>
+      {% endif %}
+    </div>
+
+  </body>
+</html>

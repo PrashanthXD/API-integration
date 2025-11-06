@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ cve.cve_id }} - Details</title>
+    <style>
+      body { font-family: Arial, sans-serif; max-width: 900px; margin: 24px auto; }
+      .meta { margin-bottom: 12px }
+      ul { padding-left: 18px }
+      a.button { display: inline-block; padding: 6px 10px; border: 1px solid #888; background:#f6f6f6; text-decoration:none; color:#000 }
+    </style>
+  </head>
+  <body>
+    <a class="button" href="{{ url_for('cves_list') }}">&laquo; Back to list</a>
+    <h1>{{ cve.cve_id }}</h1>
+    <div class="meta">
+      <strong>CVSS:</strong> {{ cve.cvss }} &nbsp; | &nbsp;
+      <strong>Year:</strong> {{ cve.year }} &nbsp; | &nbsp;
+      <strong>Published:</strong> {{ cve.published or 'N/A' }}
+    </div>
+    <h3>Description</h3>
+    <p>{{ cve.description }}</p>
+
+    <h3>Affected Products</h3>
+    {% if cve.products %}
+      <ul>
+        {% for p in cve.products %}
+          <li><strong>{{ p.vendor }}</strong> &mdash; {{ p.product }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No products listed.</p>
+    {% endif %}
+
+    <h3>References</h3>
+    {% if cve.references %}
+      <ul>
+        {% for url in cve.references %}
+          <li><a href="{{ url }}" target="_blank" rel="noopener">{{ url }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No references available.</p>
+    {% endif %}
+
+  </body>
+</html>
